@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>739</width>
+    <height>671</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit_name">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Full Name:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_age">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Age:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_height">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>70</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Height:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_weight">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>100</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Weight:</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_gender">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>140</y>
+     <width>68</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Gender:</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>male</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>female</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>prefer not to say</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QComboBox" name="comboBox_disorderType">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>180</y>
+     <width>131</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Sleep Disorder Type:</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>idiopathic hypersomnia</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>narcolepsy</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>obstructive sleep apnea</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>REM sleep behavior disorder</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>restless legs sydrome</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>insomnia</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>circadian rhythm sleep disorder</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>parasomnia</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>other(if other,please explain)</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>390</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save record</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_profession">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>220</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Profession:</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_otherDisorder">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>180</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_initialNote">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>350</y>
+     <width>381</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>Initial Note:</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_chronicDisease">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>381</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>Chronic Diseases:</string>
+   </property>
+  </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit_medications">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>381</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="plainText">
+    <string>Medications&amp;Doses:</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

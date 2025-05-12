@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'daily_entry_form_endcNeBhK.ui'
+## Form generated from reading UI file 'daily_entry_form_endELkrjm.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.9.0
 ##
@@ -17,15 +17,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDateEdit,
     QGridLayout, QGroupBox, QHBoxLayout, QLabel,
-    QLineEdit, QPlainTextEdit, QPushButton, QRadioButton,
-    QScrollArea, QSizePolicy, QSpacerItem, QSpinBox,
-    QTimeEdit, QVBoxLayout, QWidget)
+    QLineEdit, QPlainTextEdit, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QSpinBox, QTimeEdit,
+    QVBoxLayout, QWidget)
 
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(900, 1200)
+        Form.resize(900, 616)
         self.verticalLayout_main = QVBoxLayout(Form)
         self.verticalLayout_main.setObjectName(u"verticalLayout_main")
         self.scrollArea = QScrollArea(Form)
@@ -33,7 +33,7 @@ class Ui_Form(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 880, 1180))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 868, 745))
         self.verticalLayout_scroll = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_scroll.setObjectName(u"verticalLayout_scroll")
         self.horizontalLayout_date = QHBoxLayout()
@@ -100,72 +100,17 @@ class Ui_Form(object):
 
         self.groupBox_medication = QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox_medication.setObjectName(u"groupBox_medication")
-        self.gridLayout_medication = QGridLayout(self.groupBox_medication)
-        self.gridLayout_medication.setObjectName(u"gridLayout_medication")
-        self.label_med_taken = QLabel(self.groupBox_medication)
-        self.label_med_taken.setObjectName(u"label_med_taken")
+        self.verticalLayout_medication = QVBoxLayout(self.groupBox_medication)
+        self.verticalLayout_medication.setObjectName(u"verticalLayout_medication")
+        self.button_add_medication = QPushButton(self.groupBox_medication)
+        self.button_add_medication.setObjectName(u"button_add_medication")
 
-        self.gridLayout_medication.addWidget(self.label_med_taken, 0, 0, 1, 1)
+        self.verticalLayout_medication.addWidget(self.button_add_medication)
 
-        self.radio_yes = QRadioButton(self.groupBox_medication)
-        self.radio_yes.setObjectName(u"radio_yes")
+        self.medication_entries_layout = QVBoxLayout()
+        self.medication_entries_layout.setObjectName(u"medication_entries_layout")
 
-        self.gridLayout_medication.addWidget(self.radio_yes, 0, 1, 1, 1)
-
-        self.radio_no = QRadioButton(self.groupBox_medication)
-        self.radio_no.setObjectName(u"radio_no")
-
-        self.gridLayout_medication.addWidget(self.radio_no, 0, 2, 1, 1)
-
-        self.label_med_count = QLabel(self.groupBox_medication)
-        self.label_med_count.setObjectName(u"label_med_count")
-
-        self.gridLayout_medication.addWidget(self.label_med_count, 1, 0, 1, 1)
-
-        self.spinBox_med_count = QSpinBox(self.groupBox_medication)
-        self.spinBox_med_count.setObjectName(u"spinBox_med_count")
-
-        self.gridLayout_medication.addWidget(self.spinBox_med_count, 1, 1, 1, 1)
-
-        self.label_med_name = QLabel(self.groupBox_medication)
-        self.label_med_name.setObjectName(u"label_med_name")
-
-        self.gridLayout_medication.addWidget(self.label_med_name, 2, 0, 1, 1)
-
-        self.lineEdit_med_name = QLineEdit(self.groupBox_medication)
-        self.lineEdit_med_name.setObjectName(u"lineEdit_med_name")
-
-        self.gridLayout_medication.addWidget(self.lineEdit_med_name, 2, 1, 1, 2)
-
-        self.label_dose = QLabel(self.groupBox_medication)
-        self.label_dose.setObjectName(u"label_dose")
-
-        self.gridLayout_medication.addWidget(self.label_dose, 3, 0, 1, 1)
-
-        self.spinBox_dose = QSpinBox(self.groupBox_medication)
-        self.spinBox_dose.setObjectName(u"spinBox_dose")
-
-        self.gridLayout_medication.addWidget(self.spinBox_dose, 3, 1, 1, 1)
-
-        self.label_time_taken = QLabel(self.groupBox_medication)
-        self.label_time_taken.setObjectName(u"label_time_taken")
-
-        self.gridLayout_medication.addWidget(self.label_time_taken, 4, 0, 1, 1)
-
-        self.timeEdit_taken = QTimeEdit(self.groupBox_medication)
-        self.timeEdit_taken.setObjectName(u"timeEdit_taken")
-
-        self.gridLayout_medication.addWidget(self.timeEdit_taken, 4, 1, 1, 1)
-
-        self.label_effect_delay = QLabel(self.groupBox_medication)
-        self.label_effect_delay.setObjectName(u"label_effect_delay")
-
-        self.gridLayout_medication.addWidget(self.label_effect_delay, 5, 0, 1, 1)
-
-        self.spinBox_delay = QSpinBox(self.groupBox_medication)
-        self.spinBox_delay.setObjectName(u"spinBox_delay")
-
-        self.gridLayout_medication.addWidget(self.spinBox_delay, 5, 1, 1, 1)
+        self.verticalLayout_medication.addLayout(self.medication_entries_layout)
 
 
         self.verticalLayout_scroll.addWidget(self.groupBox_medication)
@@ -215,7 +160,6 @@ class Ui_Form(object):
 
         self.spinBox_stress = QSpinBox(self.groupBox_daily_state)
         self.spinBox_stress.setObjectName(u"spinBox_stress")
-        self.spinBox_stress.setMaximum(5)
 
         self.gridLayout_daily_state.addWidget(self.spinBox_stress, 3, 1, 1, 1)
 
@@ -267,7 +211,6 @@ class Ui_Form(object):
         self.combo_social.addItem("")
         self.combo_social.addItem("")
         self.combo_social.addItem("")
-        self.combo_social.addItem("")
         self.combo_social.setObjectName(u"combo_social")
 
         self.gridLayout_daily_state.addWidget(self.combo_social, 8, 1, 1, 1)
@@ -295,12 +238,12 @@ class Ui_Form(object):
         self.groupBox_summary.setObjectName(u"groupBox_summary")
         self.verticalLayout_summary = QVBoxLayout(self.groupBox_summary)
         self.verticalLayout_summary.setObjectName(u"verticalLayout_summary")
-        self.hboxLayout = QHBoxLayout()
-        self.hboxLayout.setObjectName(u"hboxLayout")
+        self.horizontalLayout_summary_feel = QHBoxLayout()
+        self.horizontalLayout_summary_feel.setObjectName(u"horizontalLayout_summary_feel")
         self.label_summary_feel = QLabel(self.groupBox_summary)
         self.label_summary_feel.setObjectName(u"label_summary_feel")
 
-        self.hboxLayout.addWidget(self.label_summary_feel)
+        self.horizontalLayout_summary_feel.addWidget(self.label_summary_feel)
 
         self.combo_day_summary = QComboBox(self.groupBox_summary)
         self.combo_day_summary.addItem("")
@@ -309,10 +252,10 @@ class Ui_Form(object):
         self.combo_day_summary.addItem("")
         self.combo_day_summary.setObjectName(u"combo_day_summary")
 
-        self.hboxLayout.addWidget(self.combo_day_summary)
+        self.horizontalLayout_summary_feel.addWidget(self.combo_day_summary)
 
 
-        self.verticalLayout_summary.addLayout(self.hboxLayout)
+        self.verticalLayout_summary.addLayout(self.horizontalLayout_summary_feel)
 
         self.textedit_daily_note = QPlainTextEdit(self.groupBox_summary)
         self.textedit_daily_note.setObjectName(u"textedit_daily_note")
@@ -344,18 +287,11 @@ class Ui_Form(object):
         self.groupBox_sleep.setTitle(QCoreApplication.translate("Form", u"Sleep Info", None))
         self.label_sleep_time.setText(QCoreApplication.translate("Form", u"Sleep Time :", None))
         self.label_wake_time.setText(QCoreApplication.translate("Form", u"Wake-up Time:", None))
-        self.label_quality.setText(QCoreApplication.translate("Form", u"Sleep Quality:", None))
+        self.label_quality.setText(QCoreApplication.translate("Form", u"Sleep Quality :", None))
         self.groupBox_medication.setTitle(QCoreApplication.translate("Form", u"Medication", None))
-        self.label_med_taken.setText(QCoreApplication.translate("Form", u"Did you take any medication today?", None))
-        self.radio_yes.setText(QCoreApplication.translate("Form", u"Yes", None))
-        self.radio_no.setText(QCoreApplication.translate("Form", u"No", None))
-        self.label_med_count.setText(QCoreApplication.translate("Form", u"Number of medications:", None))
-        self.label_med_name.setText(QCoreApplication.translate("Form", u"Medication name:", None))
-        self.label_dose.setText(QCoreApplication.translate("Form", u"Dose (mg):", None))
-        self.label_time_taken.setText(QCoreApplication.translate("Form", u"Time taken:", None))
-        self.label_effect_delay.setText(QCoreApplication.translate("Form", u"Effect delay (hours):", None))
+        self.button_add_medication.setText(QCoreApplication.translate("Form", u"Add Medication", None))
         self.groupBox_daily_state.setTitle(QCoreApplication.translate("Form", u"Daily State", None))
-        self.label_alertness.setText(QCoreApplication.translate("Form", u"Daytime alertness level (1-10):", None))
+        self.label_alertness.setText(QCoreApplication.translate("Form", u"Daytime alertness level:", None))
         self.label_screen.setText(QCoreApplication.translate("Form", u"Screen time (hours):", None))
         self.label_activity.setText(QCoreApplication.translate("Form", u"Physical activity level:", None))
         self.combo_activity.setItemText(0, QCoreApplication.translate("Form", u"none", None))
@@ -363,21 +299,20 @@ class Ui_Form(object):
         self.combo_activity.setItemText(2, QCoreApplication.translate("Form", u"moderate", None))
         self.combo_activity.setItemText(3, QCoreApplication.translate("Form", u"intense", None))
 
-        self.label_stress.setText(QCoreApplication.translate("Form", u"Stress level (1-5):", None))
+        self.label_stress.setText(QCoreApplication.translate("Form", u"Stress level:", None))
         self.label_mood.setText(QCoreApplication.translate("Form", u"Mood after waking:", None))
         self.combo_mood.setItemText(0, QCoreApplication.translate("Form", u"groggy", None))
         self.combo_mood.setItemText(1, QCoreApplication.translate("Form", u"normal", None))
         self.combo_mood.setItemText(2, QCoreApplication.translate("Form", u"energetic", None))
 
         self.label_meals.setText(QCoreApplication.translate("Form", u"Number of meals today:", None))
-        self.label_smoking.setText(QCoreApplication.translate("Form", u"Used smoking/alcohol today:", None))
+        self.label_smoking.setText(QCoreApplication.translate("Form", u"Used smoking/alcohol today", None))
         self.lineEdit_smoke_detail.setPlaceholderText(QCoreApplication.translate("Form", u"if yes, specify amount", None))
         self.label_social.setText(QCoreApplication.translate("Form", u"How was your social environment today?", None))
         self.combo_social.setItemText(0, QCoreApplication.translate("Form", u"alone at home", None))
         self.combo_social.setItemText(1, QCoreApplication.translate("Form", u"with family or friends (at home)", None))
         self.combo_social.setItemText(2, QCoreApplication.translate("Form", u"outside in social settings", None))
         self.combo_social.setItemText(3, QCoreApplication.translate("Form", u"socially isolated avoided people", None))
-        self.combo_social.setItemText(4, QCoreApplication.translate("Form", u"other (please explain)", None))
 
         self.label_caffeine.setText(QCoreApplication.translate("Form", u"How much caffeine did you consume today?", None))
         self.combo_caffeine.setItemText(0, QCoreApplication.translate("Form", u"none", None))

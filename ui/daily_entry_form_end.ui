@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>616</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Daily Entry Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_main">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>868</width>
+        <height>737</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_scroll">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_date">
+         <item>
+          <spacer name="spacer_left">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_date">
+           <property name="text">
+            <string>Date:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="dateEdit"/>
+         </item>
+         <item>
+          <spacer name="spacer_right">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Policy::Expanding</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_sleep">
+         <property name="title">
+          <string>Sleep Info</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_sleep">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_sleep_time">
+            <property name="text">
+             <string>Sleep Time :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QTimeEdit" name="timeEdit_sleep"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_wake_time">
+            <property name="text">
+             <string>Wake-up Time:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QTimeEdit" name="timeEdit_wake"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_quality">
+            <property name="text">
+             <string>Sleep Quality :</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QSpinBox" name="spinBox_quality">
+            <property name="minimum">
+             <number>1</number>
+            </property>
+            <property name="maximum">
+             <number>10</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_medication">
+         <property name="title">
+          <string>Medication</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_medication">
+          <item>
+           <widget class="QPushButton" name="button_add_medication">
+            <property name="text">
+             <string>Add Medication</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_daily_state">
+         <property name="title">
+          <string>Daily State</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_daily_state">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_alertness">
+            <property name="text">
+             <string>Daytime alertness level:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QSpinBox" name="spinBox_alertness"/>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_screen">
+            <property name="text">
+             <string>Screen time (hours):</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QSpinBox" name="spinBox_screen"/>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_activity">
+            <property name="text">
+             <string>Physical activity level:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QComboBox" name="combo_activity">
+            <item>
+             <property name="text">
+              <string>none</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>low</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>moderate</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>intense</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_stress">
+            <property name="text">
+             <string>Stress level:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QSpinBox" name="spinBox_stress"/>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_mood">
+            <property name="text">
+             <string>Mood after waking:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QComboBox" name="combo_mood">
+            <item>
+             <property name="text">
+              <string>groggy</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>normal</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>energetic</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_meals">
+            <property name="text">
+             <string>Number of meals today:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1">
+           <widget class="QSpinBox" name="spinBox_meals"/>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_smoking">
+            <property name="text">
+             <string>Used smoking/alcohol today</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QCheckBox" name="checkBox_smoke"/>
+          </item>
+          <item row="7" column="0" colspan="2">
+           <widget class="QLineEdit" name="lineEdit_smoke_detail">
+            <property name="placeholderText">
+             <string>if yes, specify amount</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_social">
+            <property name="text">
+             <string>How was your social environment today?</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QComboBox" name="combo_social">
+            <item>
+             <property name="text">
+              <string>alone at home</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>with family or friends (at home)</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>outside in social settings</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>socially isolated avoided people</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_caffeine">
+            <property name="text">
+             <string>How much caffeine did you consume today?</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QComboBox" name="combo_caffeine">
+            <item>
+             <property name="text">
+              <string>none</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>1 small cup</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>2-3 cups</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>4+ cups</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>energy drink/cola</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>I don't remember</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_summary">
+         <property name="title">
+          <string>Daily Summary</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_summary">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_summary_feel">
+            <item>
+             <widget class="QLabel" name="label_summary_feel">
+              <property name="text">
+               <string>How did you feel today?</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="combo_day_summary">
+              <item>
+               <property name="text">
+                <string>had trouble sleeping</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>felt sleepy all day</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>felt normal</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>felt good/energetic</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPlainTextEdit" name="textedit_daily_note">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="placeholderText">
+             <string>Daily Note (optional)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_save">
+         <property name="text">
+          <string>Save</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

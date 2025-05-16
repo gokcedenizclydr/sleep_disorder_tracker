@@ -1,0 +1,149 @@
+import json
+from PyQt6 import QtWidgets, uic
+from datetime import datetime
+from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg as FigureCanvas
+from matplotlib.figure import Figure
+
+
+class MonthlyAnalysisForm(QtWidgets.QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("ui/monthly_analysis_with_plot.ui", self)
+
+
+        self.combo_month = self.findChild(QtWidgets.QComboBox, "combo_month")
+        self.textEdit_summary = self.findChild(QtWidgets.QTextEdit, "textEdit_summary")
+        self.plot_widget = self.findChild(QtWidgets.QWidget, "plot_widget")
+        self.btn_back = self.findChild(QtWidgets.QPushButton, "btn_back")
+
+        self.combo_month.currentTextChanged.connect(self.perform_analysis)
+        self.btn_back.clicked.connect(self.close)
+
+        self.canvas = FigureCanvas(Figure(figsize=(5, 3)))
+        layout = QtWidgets.QVBoxLayout(self.plot_widget)
+        layout.addWidget(self.canvas)
+
+        self.populate_months()
+
+    def populate_months(self):
+        try:
+            with open("demo_data.json", "r", encoding="utf-8") as f:
+                data = json.load(f)
+            months = set()
+            for date_str in data.keys():
+                dt = datetime.strptime(date_str, "%Y-%m-%d")
+                months.add(dt.strftime("%B %Y"))
+            self.combo_month.addItems(sorted(months))
+        except Exception as e:
+            self.textEdit_summary.setPlainText(f"Error loading months: {e}")
+
+    def is_morning(self, time_str):
+        hour = int(time_str.split(":")[0])
+        return hour < 12
+
+    def perform_analysis(self, selected_month):
+        try:
+            with open("demo_data.json", "r", encoding="utf-8") as f:
+                all_data = json.load(f)
+
+            filtered_data = {
+                date_str: entry for date_str, entry in all_data.items()
+                if datetime.strptime(date_str, "%Y-%m-%d").strftime("%B %Y") == selected_month
+            }
+
+            self.textEdit_summary.setPlainText(self.analyze_text(filtered_data))
+            self.plot_data(filtered_data)
+        except Exception as e:
+            self.textEdit_summary.setPlainText(f"Error: {e}")
+
+    def analyze_text(self, data):
+        if not data:
+            return "No data found for the selected month."
+
+        morning_alertness = []
+        afternoon_alertness = []
+        social_alertness = []
+        alone_alertness = []
+        caffeine_high = []
+        caffeine_low = []
+        stress_sleep_quality = []
+
+        suggestions = []
+
+        for entry in data.values():
+            alert = entry["alertness_score"]
+            sleep_quality = entry["sleep_quality"]
+
+            # Medication
+            if self.is_morning(entry["medication_time"]):
+                morning_alertness.append(alert)
+            else:
+                afternoon_alertness.append(alert)
+
+            # Social
+            if entry["social_environment"] in ["outside", "with friends at home"]:
+                social_alertness.append(alert)
+            else:
+                alone_alertness.append(alert)
+
+            # Caffeine
+            caffeine = entry["caffeine"]
+            if caffeine in ["4+ cups", "energy drink/cola"]:
+                caffeine_high.append(sleep_quality)
+            elif caffeine in ["1 small cup", "2-3 cups"]:
+                caffeine_low.append(sleep_quality)
+
+            # Stress
+            stress_sleep_quality.append((entry["stress_level"], sleep_quality))
+
+        if morning_alertness and afternoon_alertness:
+            avg_m = sum(morning_alertness) / len(morning_alertness)
+            avg_a = sum(afternoon_alertness) / len(afternoon_alertness)
+            if avg_m > avg_a + 1:
+                suggestions.append(f"💊 Morning medication improves alertness: {avg_m:.1f} vs {avg_a:.1f}")
+
+        if social_alertness and alone_alertness:
+            avg_s = sum(social_alertness) / len(social_alertness)
+            avg_al = sum(alone_alertness) / len(alone_alertness)
+            if avg_s > avg_al + 1:
+                suggestions.append(f"🧍‍♂️ Being social improves alertness: {avg_s:.1f} vs {avg_al:.1f}")
+
+        if caffeine_high and caffeine_low:
+            avg_h = sum(caffeine_high) / len(caffeine_high)
+            avg_l = sum(caffeine_low) / len(caffeine_low)
+            if avg_l > avg_h + 1:
+                suggestions.append(f"☕ Less caffeine improves sleep: {avg_l:.1f} vs {avg_h:.1f}")
+
+        high_stress = [sq for st, sq in stress_sleep_quality if st >= 4]
+        low_stress = [sq for st, sq in stress_sleep_quality if st <= 2]
+        if high_stress and low_stress:
+            avg_hs = sum(high_stress) / len(high_stress)
+            avg_ls = sum(low_stress) / len(low_stress)
+            if avg_ls > avg_hs + 1:
+                suggestions.append(f"😰 Lower stress helps sleep: {avg_ls:.1f} vs {avg_hs:.1f}")
+
+        return "\n".join(suggestions) if suggestions else "No strong patterns detected."
+
+    def plot_data(self, data):
+        self.canvas.figure.clear()
+        ax = self.canvas.figure.add_subplot(111)
+
+        dates = list(data.keys())
+        dates.sort()
+        sleep_scores = [data[d]["sleep_quality"] for d in dates]
+        alert_scores = [data[d]["alertness_score"] for d in dates]
+
+        ax.plot(dates, sleep_scores, marker='o', label="Sleep Quality")
+        ax.plot(dates, alert_scores, marker='x', label="Alertness")
+        ax.set_xticks(dates[::2])
+        ax.set_xticklabels(dates[::2], rotation=45, ha='right')
+        ax.set_ylabel("Score")
+        ax.set_title("Sleep Quality & Alertness Trend")
+        ax.legend()
+        self.canvas.draw()
+if __name__ == "__main__":
+    app = QtWidgets.QApplication([])
+    window = MonthlyAnalysisForm()
+    window.show()
+    app.exec()
+

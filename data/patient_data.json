@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2025-04-01",
+    "medications": [
+      {"name": "Modiwake", "dose": 100, "time": "07:00", "effect_delay": 2}
+    ],
+    "wakefulness_score": 7,
+    "sleep_duration": 7.5,
+    "caffeine_mg": 150,
+    "screen_time_hr": 5,
+    "stress_level": 3,
+    "social_day": false,
+    "notes": "Felt okay, but tired in the evening."
+  },
+  {
+    "date": "2025-04-02",
+    "medications": [
+      {"name": "Modiwake", "dose": 200, "time": "07:00", "effect_delay": 1.5}
+    ],
+    "wakefulness_score": 8,
+    "sleep_duration": 8,
+    "caffeine_mg": 100,
+    "screen_time_hr": 4,
+    "stress_level": 2,
+    "social_day": true,
+    "notes": "Energetic, went out with friends."
+  }
+  // ... böylece 30 gün doldurulabilir
+]

@@ -1,59 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
- <class>MainMenu</class>
- <widget class="QWidget" name="MainMenu">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>350</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Main Menu</string>
-  </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="label_welcome">
-     <property name="text">
-      <string>Welcome to Sleep Tracker</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="btn_daily_entry">
-     <property name="text">
-      <string>Fill Daily Entry</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="btn_monthly_analysis">
-     <property name="text">
-      <string>View Monthly Analysis</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="btn_treatment_end">
-     <property name="text">
-      <string>End Treatment & Generate Report</string>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QPushButton" name="btn_logout">
-     <property name="text">
-      <string>Log Out</string>
-     </property>
-    </widget>
-   </item>
-  </layout>
- </widget>
- <resources/>
- <connections/>
-</ui>
+import sys
+from PyQt6 import QtWidgets, uic
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton
+
+class MainMenu(QWidget):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("main_menu.ui", self)
+
+        self.findChild(QPushButton, "btn_daily_entry").clicked.connect(self.open_daily_entry)
+        self.findChild(QPushButton, "btn_monthly_analysis").clicked.connect(self.open_monthly_analysis)
+        self.findChild(QPushButton, "btn_treatment_end").clicked.connect(self.open_treatment_report)
+        self.findChild(QPushButton, "btn_logout").clicked.connect(self.logout)
+
+    def open_daily_entry(self):
+        print(">> Daily Entry button clicked")
+
+    def open_monthly_analysis(self):
+        print(">> Monthly Analysis button clicked")
+
+    def open_treatment_report(self):
+        print(">> Treatment Report button clicked")
+
+    def logout(self):
+        print(">> Logout button clicked")
+
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = MainMenu()
+    window.setWindowTitle("Sleep Tracker - Main Menu")
+    window.show()
+    sys.exit(app.exec())

@@ -1,25 +1,37 @@
-import sys
+from PyQt6.QtWidgets import (
+    QWidget, QVBoxLayout, QPushButton, QTextEdit, QMessageBox
+)
+from PyQt6.QtCore import Qt
 import json
 import re
-from PySide6.QtWidgets import QApplication, QWidget, QMessageBox, QPushButton
-from patient_register_ui import Ui_Form
-from ui.treatment_report_ui import Ui_TreatmentReport
+from datetime import datetime
 
 
-class TreatmentReportWindow(QWidget):
+class TreatmentReportWidget(QWidget):
     def __init__(self):
         super().__init__()
-        self.ui = Ui_TreatmentReport()
-        self.ui.setupUi(self)
         self.setWindowTitle("Final Treatment Report")
-        self.ui.generateReportButton.clicked.connect(self.generate_report)
+        self.setMinimumSize(700, 600)
+
+        layout = QVBoxLayout()
+
+        self.report_view = QTextEdit()
+        self.report_view.setReadOnly(True)
+        self.report_view.setPlaceholderText("Click the button below to generate the final report...")
+
+        self.generate_button = QPushButton("Generate Final Treatment Report")
+        self.generate_button.clicked.connect(self.generate_report)
+
+        layout.addWidget(self.generate_button)
+        layout.addWidget(self.report_view)
+        self.setLayout(layout)
 
     def load_patient_data(self):
         try:
             with open("data/patient_data.json", "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception as e:
-            QMessageBox.critical(self, "Error", f"Could not load patient_data.json:\n{str(e)}")
+            QMessageBox.critical(self, "Error", f"Failed to load patient_data.json:\n{str(e)}")
             return {}
 
     def load_daily_entries(self):
@@ -27,7 +39,7 @@ class TreatmentReportWindow(QWidget):
             with open("data/demo_data.json", "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception as e:
-            QMessageBox.critical(self, "Error", f"Could not load demo_data.json:\n{str(e)}")
+            QMessageBox.critical(self, "Error", f"Failed to load demo_data.json:\n{str(e)}")
             return {}
 
     def detect_risk_phrases(self, notes):
@@ -66,9 +78,11 @@ class TreatmentReportWindow(QWidget):
             sleep_scores.append(entry["sleep_quality"])
             alertness_scores.append(entry["alertness_score"])
             stress_scores.append(entry["stress_level"])
+
             note = entry.get("daily_note", "")
             if note:
                 notes[date] = note
+
             try:
                 dose = int(entry.get("medication_dose", 0))
                 if dose > 0:
@@ -113,61 +127,13 @@ class TreatmentReportWindow(QWidget):
 
         report.append("=============================================\n")
 
-        final_report = "\n".join(report)
-        self.ui.reportTextBox.setPlainText(final_report)
+        full_text = "\n".join(report)
+        self.report_view.setPlainText(full_text)
 
         try:
-            with open("treatment_report.txt", "w", encoding="utf-8") as f:
-                f.write(final_report)
+            with open("treatment_report.txt", "w", encoding="utf-8") as file:
+                file.write(full_text)
         except Exception as e:
-            QMessageBox.warning(self, "Error", f"Failed to save report:\n{str(e)}")
+            QMessageBox.warning(self, "Save Error", f"Failed to save report:\n{str(e)}")
         else:
-            QMessageBox.information(self, "Success", "Report saved as treatment_report.txt")
-
-
-class MainWindow(QWidget):
-    def __init__(self):
-        super().__init__()
-        self.ui = Ui_Form()
-        self.ui.setupUi(self)
-        self.setWindowTitle("Patient Registration")
-        self.ui.pushButton.clicked.connect(self.save_data)
-
-        # Add report screen button
-        self.report_button = QPushButton("End Treatment & Generate Report", self)
-        self.report_button.move(20, 400)
-        self.report_button.clicked.connect(self.open_report_window)
-
-        self.show()
-
-    def save_data(self):
-        data = {
-            "Full Name": self.ui.lineEdit_name.text(),
-            "Age": self.ui.lineEdit_age.text(),
-            "Height": self.ui.lineEdit_height.text(),
-            "Weight": self.ui.lineEdit_weight.text(),
-            "Gender": self.ui.comboBox_gender.currentText(),
-            "Sleep Disorder Type": self.ui.comboBox_disorderType.currentText(),
-            "Other Disorder": self.ui.lineEdit_otherDisorder.text(),
-            "Profession": self.ui.lineEdit_profession.text(),
-            "Medications": self.ui.plainTextEdit_medications.toPlainText(),
-            "Chronic Diseases": self.ui.plainTextEdit_chronicDisease.toPlainText(),
-            "Initial Note": self.ui.plainTextEdit_initialNote.toPlainText()
-        }
-
-        try:
-            with open("data/patient_data.json", "w", encoding="utf-8") as file:
-                json.dump(data, file, indent=4, ensure_ascii=False)
-            QMessageBox.information(self, "Success", "Patient data saved!")
-        except Exception as e:
-            QMessageBox.critical(self, "Error", f"Could not save data:\n{e}")
-
-    def open_report_window(self):
-        self.report_window = TreatmentReportWindow()
-        self.report_window.show()
-
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    window = MainWindow()
-    sys.exit(app.exec())
+            QMessageBox.information(self, "Success", "Report successfully saved as treatment_report.txt")

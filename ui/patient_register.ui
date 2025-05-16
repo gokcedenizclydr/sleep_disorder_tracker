@@ -6,161 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>739</width>
+    <width>985</width>
     <height>671</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="lineEdit_name">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>10</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Full Name:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_age">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>40</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Age:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_height">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>70</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Height:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_weight">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>100</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Weight:</string>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_gender">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>140</y>
-     <width>68</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Gender:</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>male</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>female</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>prefer not to say</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QComboBox" name="comboBox_disorderType">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>180</y>
-     <width>131</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>Sleep Disorder Type:</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>idiopathic hypersomnia</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>narcolepsy</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>obstructive sleep apnea</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>REM sleep behavior disorder</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>restless legs sydrome</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>insomnia</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>circadian rhythm sleep disorder</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>parasomnia</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>other(if other,please explain)</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>390</y>
-     <width>75</width>
+     <x>330</x>
+     <y>590</y>
+     <width>211</width>
      <height>24</height>
     </rect>
    </property>
@@ -168,67 +26,192 @@
     <string>Save record</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_profession">
+  <widget class="QWidget" name="gridLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>220</y>
-     <width>113</width>
-     <height>21</height>
+     <x>30</x>
+     <y>35</y>
+     <width>841</width>
+     <height>516</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Profession:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit_otherDisorder">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>180</y>
-     <width>113</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_initialNote">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>350</y>
-     <width>381</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="plainText">
-    <string>Initial Note:</string>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_chronicDisease">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>300</y>
-     <width>381</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="plainText">
-    <string>Chronic Diseases:</string>
-   </property>
-  </widget>
-  <widget class="QPlainTextEdit" name="plainTextEdit_medications">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>250</y>
-     <width>381</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="plainText">
-    <string>Medications&amp;Doses:</string>
-   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="8" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>Chronic Diseases:</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEdit_name"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Height :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lineEdit_age"/>
+    </item>
+    <item row="7" column="1">
+     <widget class="QLineEdit" name="lineEdit_profession"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Medications&amp;Doses :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="comboBox_gender">
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>male</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>female</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>prefer not to say</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Job :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QComboBox" name="comboBox_disorderType">
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>idiopathic hypersomnia</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>narcolepsy</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>obstructive sleep apnea</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>REM sleep behavior disorder</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>restless legs sydrome</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>insomnia</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>circadian rhythm sleep disorder</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>parasomnia</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>other(if other,please explain)</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Gender :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Sleep Disorder Type :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="lineEdit_height"/>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Full Name :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Initial Note (optional) :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Age :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="lineEdit_weight"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Weight :</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QLineEdit" name="lineEdit_otherDisorder"/>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPlainTextEdit" name="plainTextEdit_medications"/>
+    </item>
+    <item row="8" column="1">
+     <widget class="QPlainTextEdit" name="plainTextEdit_chronicDisease"/>
+    </item>
+    <item row="9" column="1">
+     <widget class="QPlainTextEdit" name="plainTextEdit_initialNote"/>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

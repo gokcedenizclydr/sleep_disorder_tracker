@@ -1,6 +1,7 @@
 import json
 from datetime import datetime
 import os
+import csv
 
 class TreatmentReportGenerator:
     def __init__(self, demo_data_path="data/demo_data.json", patient_data_path="data/patient_data.json"):
@@ -37,82 +38,88 @@ class TreatmentReportGenerator:
             if sleep_time and wake_time:
                 try:
                     fmt = "%H:%M"
-                    s = datetime.strptime(sleep_time, fmt)
-                    w = datetime.strptime(wake_time, fmt)
-                    if w < s:
-                        w = w.replace(day=w.day+1)
-                    duration = (w - s).seconds / 3600
+                    sleep_dt = datetime.strptime(sleep_time, fmt)
+                    wake_dt = datetime.strptime(wake_time, fmt)
+                    duration = (wake_dt - sleep_dt).seconds / 3600 if wake_dt > sleep_dt else (wake_dt - sleep_dt).seconds / 3600 + 24
                     sleep_durations.append(duration)
-                except:
-                    pass
-
-            if entry.get("medication_time"):
-                medication_times.append(entry["medication_time"])
+                except Exception as e:
+                    continue
 
             if entry.get("stress_level") is not None:
                 stress_levels.append(entry["stress_level"])
 
-            notes = (entry.get("note", "") + " " + entry.get("day_summary", "")).lower()
-            if any(risk_word in notes for risk_word in ["depressed", "tired", "no motivation", "hopeless", "suicid"]):
-                risky_notes.append((date, notes.strip()))
+            note_text = entry.get("note", "") + " " + entry.get("day_summary", "")
+            if any(risk_word in note_text.lower() for risk_word in ["intihar", "kendine zarar", "ölmek", "yok olmak"]):
+                risky_notes.append((date, note_text.strip()))
 
-        report_lines = []
-        report_lines.append("TREATMENT ANALYSIS REPORT")
-        report_lines.append("===========================\n")
+        avg_alertness = round(sum(alertness_scores) / len(alertness_scores), 2) if alertness_scores else "N/A"
+        avg_sleep_duration = round(sum(sleep_durations) / len(sleep_durations), 2) if sleep_durations else "N/A"
+        avg_stress = round(sum(stress_levels) / len(stress_levels), 2) if stress_levels else "N/A"
 
-        report_lines.append(f"Patient Name: {self.patient_info.get('Full Name', 'N/A')}")
-        report_lines.append(f"Age: {self.patient_info.get('Age', 'N/A')}")
-        report_lines.append(f"Gender: {self.patient_info.get('Gender', 'N/A')}")
-        report_lines.append(f"Profession: {self.patient_info.get('Profession', 'N/A')}")
-        report_lines.append(f"Chronic Diseases: {self.patient_info.get('Chronic Diseases', 'N/A')}")
-        report_lines.append(f"Sleep Disorder Type: {self.patient_info.get('Sleep Disorder Type', 'N/A')}\n")
+        patient_name = self.patient_info.get("Full Name", "Unknown")
+        age = self.patient_info.get("Age", "Unknown")
+        gender = self.patient_info.get("Gender", "Unknown")
+        profession = self.patient_info.get("Profession", "Unknown")
+        chronic_diseases = self.patient_info.get("Chronic Diseases", "None")
 
-        report_lines.append(f"Treatment Duration: {total_days} days")
-        report_lines.append(f"Average Alertness Score: {sum(alertness_scores)/len(alertness_scores):.2f}")
-        report_lines.append(f"Average Sleep Duration: {sum(sleep_durations)/len(sleep_durations):.2f} hours")
-        report_lines.append(f"Average Stress Level: {sum(stress_levels)/len(stress_levels):.2f}")
+        report = f"""
+----- Treatment Summary Report -----
+
+Patient Name: {patient_name}
+Age: {age} | Gender: {gender}
+Profession: {profession}
+Chronic Conditions: {chronic_diseases}
+
+Total Days Tracked: {total_days}
+Average Alertness Score: {avg_alertness}
+Average Sleep Duration: {avg_sleep_duration} hours
+Average Stress Level: {avg_stress}
+
+-- Psychological Risk Notes --
+"""
 
         if risky_notes:
-            report_lines.append("\⚠️ Psychological Risk Notes Detected:")
-            for d, note in risky_notes:
-                report_lines.append(f"- {d}: {note[:60]}...")
+            for date, note in risky_notes:
+                report += f"\n{date}: {note}"
+        else:
+            report += "\nNo high-risk notes detected."
 
-        return "\n".join(report_lines)
+        report += "\n\n----------------------------------"
+        return report
 
-    def generate_report_file(self, output_dir="reports"):
-        os.makedirs(output_dir, exist_ok=True)
-        dates = sorted(self.daily_data.keys())
-        if not dates:
-            return None
+    def save_report_as_txt(self, filepath="treatment_summary.txt"):
+        report = self.generate_report()
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(report)
+        print(f"Report saved as TXT at: {filepath}")
 
-        start_date = dates[0].replace("-", "")
-        end_date = dates[-1].replace("-", "")
-        base_filename = f"treatment_report_{start_date}_to_{end_date}"
+    def save_report_as_csv(self, filepath="treatment_data.csv"):
+        headers = [
+            "Date", "Alertness Score", "Sleep Time", "Wake Time",
+            "Sleep Quality", "Stress Level", "Caffeine", "Screen Time",
+            "Physical Activity", "Social Environment", "Note", "Day Summary"
+        ]
 
-        # Save .txt report
-        txt_path = os.path.join(output_dir, base_filename + ".txt")
-        report_text = self.generate_report()
-        with open(txt_path, 'w', encoding='utf-8') as f:
-            f.write(report_text)
+        with open(filepath, mode='w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(headers)
 
-        # Save .csv raw data
-        csv_path = os.path.join(output_dir, base_filename + ".csv")
-        with open(csv_path, 'w', encoding='utf-8') as f:
-            f.write("date,alertness_score,sleep_duration,stress_level,note\n")
-            for date in dates:
+            for date in sorted(self.daily_data.keys()):
                 entry = self.daily_data[date]
-                score = entry.get("alertness_score", "")
-                stress = entry.get("stress_level", "")
-                notes = (entry.get("note", "") + " " + entry.get("day_summary", "")).replace("\n", " ").replace(",", ";")
-                duration = ""
-                try:
-                    s = datetime.strptime(entry.get("sleep_time", "00:00"), "%H:%M")
-                    w = datetime.strptime(entry.get("wake_time", "00:00"), "%H:%M")
-                    if w < s:
-                        w = w.replace(day=w.day+1)
-                    duration = round((w - s).seconds / 3600, 2)
-                except:
-                    duration = ""
-                f.write(f"{date},{score},{duration},{stress},{notes}\n")
+                row = [
+                    date,
+                    entry.get("alertness_score"),
+                    entry.get("sleep_time"),
+                    entry.get("wake_time"),
+                    entry.get("sleep_quality"),
+                    entry.get("stress_level"),
+                    entry.get("caffeine"),
+                    entry.get("screen_time"),
+                    entry.get("physical_activity"),
+                    entry.get("social_environment"),
+                    entry.get("note"),
+                    entry.get("day_summary"),
+                ]
+                writer.writerow(row)
 
-        return txt_path
+        print(f"Report saved as CSV at: {filepath}")

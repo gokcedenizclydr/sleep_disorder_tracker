@@ -73,7 +73,7 @@ class TreatmentReportGenerator:
         report_lines.append(f"Average Stress Level: {sum(stress_levels)/len(stress_levels):.2f}")
 
         if risky_notes:
-            report_lines.append("\n⚠️ Psychological Risk Notes Detected:")
+            report_lines.append("\⚠️ Psychological Risk Notes Detected:")
             for d, note in risky_notes:
                 report_lines.append(f"- {d}: {note[:60]}...")
 
@@ -87,17 +87,32 @@ class TreatmentReportGenerator:
 
         start_date = dates[0].replace("-", "")
         end_date = dates[-1].replace("-", "")
-        filename = f"treatment_report_{start_date}_to_{end_date}.txt"
-        full_path = os.path.join(output_dir, filename)
+        base_filename = f"treatment_report_{start_date}_to_{end_date}"
 
+        # Save .txt report
+        txt_path = os.path.join(output_dir, base_filename + ".txt")
         report_text = self.generate_report()
-        with open(full_path, 'w', encoding='utf-8') as f:
+        with open(txt_path, 'w', encoding='utf-8') as f:
             f.write(report_text)
 
-        return full_path
+        # Save .csv raw data
+        csv_path = os.path.join(output_dir, base_filename + ".csv")
+        with open(csv_path, 'w', encoding='utf-8') as f:
+            f.write("date,alertness_score,sleep_duration,stress_level,note\n")
+            for date in dates:
+                entry = self.daily_data[date]
+                score = entry.get("alertness_score", "")
+                stress = entry.get("stress_level", "")
+                notes = (entry.get("note", "") + " " + entry.get("day_summary", "")).replace("\n", " ").replace(",", ";")
+                duration = ""
+                try:
+                    s = datetime.strptime(entry.get("sleep_time", "00:00"), "%H:%M")
+                    w = datetime.strptime(entry.get("wake_time", "00:00"), "%H:%M")
+                    if w < s:
+                        w = w.replace(day=w.day+1)
+                    duration = round((w - s).seconds / 3600, 2)
+                except:
+                    duration = ""
+                f.write(f"{date},{score},{duration},{stress},{notes}\n")
 
-if __name__ == "__main__":
-    generator = TreatmentReportGenerator()
-    path = generator.generate_report_file()
-    print(f"Report saved to: {path}")
-
+        return txt_path

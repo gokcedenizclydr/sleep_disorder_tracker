@@ -3,7 +3,12 @@
  <class>MonthlyAnalysisForm</class>
  <widget class="QWidget" name="MonthlyAnalysisForm">
   <property name="geometry">
-   <rect><x>0</x><y>0</y><width>800</width><height>600</height></rect>
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
   </property>
   <property name="windowTitle">
    <string>Monthly Analysis</string>
@@ -13,7 +18,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_month">
      <item>
       <widget class="QLabel" name="label_month">
-       <property name="text"><string>Select Month:</string></property>
+       <property name="text">
+        <string>Select Month:</string>
+       </property>
       </widget>
      </item>
      <item>
@@ -23,19 +30,29 @@
    </item>
    <item>
     <widget class="QTextEdit" name="textEdit_summary">
-     <property name="readOnly"><bool>true</bool></property>
-     <property name="minimumHeight"><number>150</number></property>
-     <property name="placeholderText"><string>Summary will appear here</string></property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="minimumHeight">
+      <number>150</number>
+     </property>
+     <property name="placeholderText">
+      <string>Summary will appear here</string>
+     </property>
     </widget>
    </item>
    <item>
     <widget class="QWidget" name="plot_widget" native="true">
-     <property name="minimumHeight"><number>250</number></property>
+     <property name="minimumHeight">
+      <number>250</number>
+     </property>
     </widget>
    </item>
    <item>
     <widget class="QPushButton" name="btn_back">
-     <property name="text"><string>Back</string></property>
+     <property name="text">
+      <string>Back</string>
+     </property>
     </widget>
    </item>
   </layout>

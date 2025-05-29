@@ -3,31 +3,26 @@
  <class>TreatmentReportForm</class>
  <widget class="QWidget" name="TreatmentReportForm">
   <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>800</width>
-    <height>600</height>
-   </rect>
+   <rect><x>0</x><y>0</y><width>400</width><height>200</height></rect>
   </property>
   <property name="windowTitle">
-   <string>Final Treatment Report</string>
+   <string>Treatment Report</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QPushButton" name="generateReportButton">
+    <widget class="QLabel" name="label_title">
      <property name="text">
-      <string>Generate Final Treatment Report</string>
+      <string>Click to Generate Final Treatment Report</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QTextEdit" name="reportTextBox">
-     <property name="readOnly">
-      <bool>true</bool>
-     </property>
-     <property name="placeholderText">
-      <string>Click the button above to generate your report...</string>
+    <widget class="QPushButton" name="generateReportButton">
+     <property name="text">
+      <string>Generate Report</string>
      </property>
     </widget>
    </item>

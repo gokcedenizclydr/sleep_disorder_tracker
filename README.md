@@ -1,7 +1,7 @@
 # 💤 Sleep Disorder Treatment Tracker
 
 A personalized tracking and analysis system designed for patients with sleep disorders such as **idiopathic hypersomnia**, **narcolepsy**, and **sleep apnea**.  
-Tracks daily data, provides monthly insights, and generates a comprehensive final treatment report.
+Tracks daily data, provides monthly insights, and creates a final treatment report as a data repository for those who want to do research.
 
 ---
 

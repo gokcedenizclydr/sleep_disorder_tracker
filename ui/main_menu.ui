@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>350</height>
+    <width>524</width>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <string>Welcome to Sleep Tracker</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignmentFlag::AlignCenter</set>
      </property>
     </widget>
    </item>
@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="btn_treatment_end">
+    <widget class="QPushButton" name="btn_treatment_report">
      <property name="text">
       <string>End Treatment &amp; Generate Report</string>
      </property>

@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_register">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -44,7 +44,7 @@
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QLineEdit" name="lineEdit_name"/>
+     <widget class="QLineEdit" name="lineEdit_fullname"/>
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_5">
@@ -98,7 +98,7 @@
      </widget>
     </item>
     <item row="5" column="1">
-     <widget class="QComboBox" name="comboBox_disorderType">
+     <widget class="QComboBox" name="comboBox_disorder">
       <item>
        <property name="text">
         <string/>
@@ -203,13 +203,13 @@
      <widget class="QLineEdit" name="lineEdit_otherDisorder"/>
     </item>
     <item row="6" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit_medications"/>
+     <widget class="QPlainTextEdit" name="textEdit_medications"/>
     </item>
     <item row="8" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit_chronicDisease"/>
+     <widget class="QPlainTextEdit" name="textEdit_chronic"/>
     </item>
     <item row="9" column="1">
-     <widget class="QPlainTextEdit" name="plainTextEdit_initialNote"/>
+     <widget class="QPlainTextEdit" name="textEdit_note"/>
     </item>
    </layout>
   </widget>

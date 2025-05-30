@@ -1,0 +1,18 @@
+
+----- Treatment Summary Report -----
+
+Patient Name: deniz
+Age: 22 | Gender: female
+Profession: student
+Chronic Conditions: celiac
+
+Total Days Tracked: 30
+Average Alertness Score: 6.73
+Average Sleep Duration: 17.21 hours
+Average Stress Level: 2.33
+
+-- Psychological Risk Notes --
+
+No high-risk notes detected.
+
+----------------------------------

@@ -1,0 +1,33 @@
+----- Sleep Disorder Treatment Final Analysis -----
+
+• Treatment Period: 2025-04-01 to 2025-04-30
+• Total Days Tracked: 30
+
+📊 Averages:
+- Alertness Score: 6.73
+- Sleep Duration: 7.61 hours
+- Stress Level: 2.33
+- Screen Time: 3.73 hours
+- Caffeine Intake: 1 small cup
+- Physical Activity: mostly none
+- Mood Distribution: most often 'groggy'
+
+🧠 Best Day:
+- 2025-04-04 → Alertness 9 | Note: Relaxed after a long day.
+
+🌧️ Worst Day:
+- 2025-04-05 → Alertness 4 | Note: Felt sluggish all day.
+
+⏰ Medication Pattern:
+- Most common dose hour: ~10:00
+- Time variability: ±7h
+⚠️ Possible inconsistency in medication schedule detected.
+
+🚩 Risk Indicators:
+- 14 days flagged with behavioral or mood risks.
+
+📓 NLP Note Flags:
+- Found keywords: struggled, tired
+
+💡 Recommendation:
+Consider stabilizing medication timing, reducing caffeine on groggy days, and reviewing emotional well-being if flagged terms persist.

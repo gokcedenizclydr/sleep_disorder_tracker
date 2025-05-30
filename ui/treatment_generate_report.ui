@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>TreatmentReportForm</class>
- <widget class="QWidget" name="TreatmentReportForm">
+ <class>TreatmentReportWindow</class>
+ <widget class="QWidget" name="TreatmentReportWindow">
   <property name="geometry">
-   <rect><x>0</x><y>0</y><width>400</width><height>200</height></rect>
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>612</width>
+    <height>315</height>
+   </rect>
   </property>
   <property name="windowTitle">
-   <string>Treatment Report</string>
+   <string>Treatment Report Generator</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QLabel" name="label_title">
+    <widget class="QPushButton" name="btn_generate">
      <property name="text">
-      <string>Click to Generate Final Treatment Report</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <string>End Treatment &amp; Generate Report</string>
      </property>
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="generateReportButton">
+    <widget class="QLabel" name="label_status">
      <property name="text">
-      <string>Generate Report</string>
+      <string>Status will appear here...</string>
      </property>
     </widget>
    </item>

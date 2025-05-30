@@ -1,0 +1,36 @@
+{
+    "treatment_start": "2025-04-01",
+    "treatment_end": "2025-04-30",
+    "total_days": 30,
+    "averages": {
+        "alertness": 6.73,
+        "sleep_duration": 7.61,
+        "stress": 2.33,
+        "screen_time": 3.73
+    },
+    "common": {
+        "caffeine": "1 small cup",
+        "activity": "none",
+        "mood": "groggy"
+    },
+    "best_day": "2025-04-04",
+    "worst_day": "2025-04-05",
+    "medication_hour_average": 10,
+    "medication_hour_variance": 7,
+    "risk_days": [
+        "2025-04-13",
+        "2025-04-24",
+        "2025-04-09",
+        "2025-04-03",
+        "2025-04-17",
+        "2025-04-26",
+        "2025-04-28",
+        "2025-04-05",
+        "2025-04-01",
+        "2025-04-11",
+        "2025-04-19",
+        "2025-04-15",
+        "2025-04-21",
+        "2025-04-07"
+    ]
+}

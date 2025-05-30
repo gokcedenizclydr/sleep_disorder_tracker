@@ -1,0 +1,31 @@
+Date,Alertness Score,Sleep Time,Wake Time,Sleep Quality,Stress Level,Caffeine,Screen Time,Physical Activity,Social Environment,Note,Day Summary
+2025-04-01,5,00:30,08:15,4,3,4+ cups,6,none,alone,Woke up frequently during the night.,had trouble sleeping
+2025-04-02,8,23:30,07:00,7,1,1 small cup,2,moderate,outside,Felt great after working out.,felt good/energetic
+2025-04-03,6,00:00,07:45,6,2,2-3 cups,4,low,with friends at home,Routine day.,felt normal
+2025-04-04,9,23:00,06:45,8,1,none,1,intense,outside,Relaxed after a long day.,felt good/energetic
+2025-04-05,4,01:00,09:30,3,4,energy drink/cola,7,none,alone,Felt sluggish all day.,felt sleepy all day
+2025-04-06,8,00:00,07:45,7,2,2-3 cups,3,moderate,outside,Walked in the park and felt clear-headed.,felt normal
+2025-04-07,5,01:00,09:00,4,4,4+ cups,6,none,alone,Struggled to focus on tasks.,felt sleepy all day
+2025-04-08,9,23:15,06:30,8,1,1 small cup,2,intense,with friends at home,Very productive day.,felt good/energetic
+2025-04-09,4,01:30,09:30,3,4,energy drink/cola,7,none,alone,Felt exhausted.,felt sleepy all day
+2025-04-10,7,00:15,07:30,6,2,2-3 cups,3,moderate,outside,Good energy most of the day.,felt normal
+2025-04-11,6,00:30,08:00,6,3,2-3 cups,4,low,with friends at home,"Average day, a bit tired in the afternoon.",felt normal
+2025-04-12,8,23:45,07:15,7,1,1 small cup,2,moderate,outside,Very motivated today.,felt good/energetic
+2025-04-13,4,01:15,09:15,3,4,4+ cups,6,none,alone,Hard to focus.,felt sleepy all day
+2025-04-14,9,22:45,06:00,8,1,none,1,intense,outside,Excellent clarity and focus.,felt good/energetic
+2025-04-15,5,01:00,08:45,4,3,energy drink/cola,6,low,alone,Felt tired and slow.,had trouble sleeping
+2025-04-16,8,23:30,07:00,7,2,2-3 cups,3,moderate,outside,"Felt fine, no issues.",felt normal
+2025-04-17,5,01:30,09:00,4,4,4+ cups,6,none,alone,Heavy mental fog.,felt sleepy all day
+2025-04-18,9,23:15,06:30,8,1,1 small cup,2,intense,with friends at home,Very sharp and focused.,felt good/energetic
+2025-04-19,4,01:00,09:00,3,4,energy drink/cola,7,none,alone,Lethargic.,felt sleepy all day
+2025-04-20,8,00:00,07:30,7,2,2-3 cups,3,moderate,outside,"Took a walk, felt good.",felt normal
+2025-04-21,5,01:15,08:30,4,3,4+ cups,5,low,alone,Brain fog.,had trouble sleeping
+2025-04-22,9,23:30,06:45,8,1,none,1,intense,with friends at home,Peak clarity and mood.,felt good/energetic
+2025-04-23,8,00:15,07:15,7,2,1 small cup,2,moderate,outside,Good focus in the afternoon.,felt normal
+2025-04-24,4,01:15,09:15,3,4,energy drink/cola,6,none,alone,Mentally drained.,felt sleepy all day
+2025-04-25,9,23:00,06:30,8,1,1 small cup,2,intense,with friends at home,Felt amazing all day.,felt good/energetic
+2025-04-26,6,00:30,08:00,6,2,2-3 cups,3,low,with friends at home,Slightly tired in the afternoon.,felt normal
+2025-04-27,8,23:45,07:00,7,2,1 small cup,2,moderate,outside,Clear-headed and calm.,felt normal
+2025-04-28,5,01:00,09:00,4,3,4+ cups,6,none,alone,Heavy and slow morning.,felt sleepy all day
+2025-04-29,8,23:30,07:15,7,2,1 small cup,2,moderate,outside,Pretty focused.,felt normal
+2025-04-30,9,23:00,06:30,8,1,1 small cup,2,intense,with friends at home,Very productive and focused.,felt good/energetic

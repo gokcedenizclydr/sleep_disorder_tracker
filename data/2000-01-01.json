@@ -1,0 +1,19 @@
+{
+    "date": "2000-01-01",
+    "sleep_time": "00:00",
+    "wake_time": "00:00",
+    "sleep_quality": 1,
+    "medications": [],
+    "alertness": 0,
+    "screen_time": 0,
+    "activity": "none",
+    "stress": 0,
+    "mood": "groggy",
+    "meals": 0,
+    "smoking": false,
+    "smoking_detail": "",
+    "social_env": "alone at home",
+    "caffeine": "none",
+    "summary_feel": "had trouble sleeping",
+    "daily_note": ""
+}
